@@ -6,6 +6,7 @@ const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678
 const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
+const USUARIOS_URL = "https://danielk2020.github.io/biblioteca/usuarios.json";
 
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
@@ -40,8 +41,15 @@ var getJSONData = function(url){
     });
 }
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+
+
 document.addEventListener("DOMContentLoaded", function(e){
+  let usuarioLogeado = localStorage.getItem("Usuario-Logeado");
+  let informacionUsuario =document.getElementById("infoUsuario");
+  let usuario = document.getElementById("usuario");
+
+  if(usuarioLogeado){
+    usuario.innerText =  "Usuario Logeado:" + " " + usuarioLogeado;
+    informacionUsuario.style = "display: inline-block";
+  }
 });
