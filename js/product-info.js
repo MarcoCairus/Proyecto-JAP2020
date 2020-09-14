@@ -13,7 +13,7 @@ img += `<img src="${auto.images[0]}" width="235">;<br>
         <img src="${auto.images[1]}" width="235">;<br>
         <img src="${auto.images[2]}" width="235">;<br>
         <img src="${auto.images[3]}" width="235">;<br>
-        <img src="${auto.images[4]}" width="235">;<br><br><br><br><hr>;
+        <img src="${auto.images[4]}" width="235">;<br><br><br><br><hr>
         `;       
 
         
