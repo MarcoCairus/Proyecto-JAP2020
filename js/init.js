@@ -53,3 +53,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     informacionUsuario.style = "display: inline-block";
   }
 });
+
+document.getElementById("salir").addEventListener("click", function(){
+  localStorage.removeItem('Usuario-Logeado');
+  window.location = 'index.html';
+})
