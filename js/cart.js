@@ -12,7 +12,7 @@ function calcSubtotal(costo){
 }
 
 
-function showLibros(array) {
+function showCart(array) {
 
     let contenido = "";
 
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(CART_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             listaCart = resultObj.data.articles;
-            showLibros(listaCart);
+            showCart(listaCart);
              
     }
     })
