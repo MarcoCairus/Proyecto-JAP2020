@@ -52,13 +52,67 @@
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <div>
+      <div class="text-center p-4">
+        <h2>Mi Carrito</h2>
+      </div>
+      <div style="padding: 50px;">
+        <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Producto</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Subtotal</th>
+    </tr>
+  </thead>
+  <tbody id="cart">
+  </tbody>
+</table>
     </div>
   </div>
+  <hr>
+  <h4>Tipo de envio</h4>
+
+    <div>
+      <input id="envio" name="envio" type="radio"  checked="">
+      <label for="envio">Normal</label> <br>
+
+      <input id="envio1" name="envio" type="radio">
+      <label for="envio1">Express</label> <br>
+
+      <input id="envio2" name="envio" type="radio">
+      <label for="envio2">Premium</label><br>
+   </div>
+    <hr>
+  
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Confirmar Compra
+</button>
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">¡Gracias por su compra!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Su compra se ha hecho con exito
+      </div>
+      <div class="modal-footer">
+        <a href="inicio.html"><button type="button" class="btn btn-primary">Confirmar</button></a>
+        
+      
+      </div>
+    </div>
+  </div>
+</div>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

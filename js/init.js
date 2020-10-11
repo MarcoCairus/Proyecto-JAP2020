@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function(e){
   let usuario = document.getElementById("usuario");
 
   if(usuarioLogeado){
-    usuario.innerText =  "Usuario Logeado:" + " " + usuarioLogeado;
+    usuario.innerText =  "Usuario:" + " " + usuarioLogeado;
     informacionUsuario.style = "display: inline-block";
   }
 });
