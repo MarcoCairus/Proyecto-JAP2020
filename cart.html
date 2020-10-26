@@ -40,78 +40,141 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <div class= "dropdowon" id="infoUsuario" style="display: none;">
-        <button id="usuario" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="cart.html">Ver Carrito</a>
-            <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
-            <a id="salir" class="dropdown-item">Salir</a>
-            </div>
-    </div>
+      <div class="dropdowon" id="infoUsuario" style="display: none;">
+        <button id="usuario" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="cart.html">Ver Carrito</a>
+          <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+          <a id="salir" class="dropdown-item">Salir</a>
+        </div>
+      </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div>
-      <div class="text-center p-4">
-        <h2>Mi Carrito</h2>
+  <form class="needs-validation" novalidate>
+    <div class="container p-5">
+      <div>
+        <div class="text-center p-4">
+          <h2>Mi Carrito</h2>
+        </div>
+
+        <div style="padding: 50px;">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody id="cart">
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div style="padding: 50px;">
-        <table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">Producto</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Precio</th>
-      <th scope="col">Cantidad</th>
-      <th scope="col">Subtotal</th>
-    </tr>
-  </thead>
-  <tbody id="cart">
-  </tbody>
-</table>
-    </div>
-  </div>
-  <hr>
-  <h4>Tipo de envio</h4>
+      <hr>
+      <h4>Tipo de envio</h4>
 
-    <div>
-      <input id="envio" name="envio" type="radio"  checked="">
-      <label for="envio">Normal</label> <br>
-
-      <input id="envio1" name="envio" type="radio">
-      <label for="envio1">Express</label> <br>
-
-      <input id="envio2" name="envio" type="radio">
-      <label for="envio2">Premium</label><br>
-   </div>
-    <hr>
-  
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  Confirmar Compra
-</button>
+      <div class="container p-5">
 
 
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">¡Gracias por su compra!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <hr>
+        <h5>País:</h5>
+        <input type="text" placeholder="País" name="pais" id="pais" class="form-control" required><br>
+        <h5>Dirección:</h5>
+        <input type="text" placeholder="Calle" name="calle" id="calle" class="form-control" required><br>
+        <input type="number" placeholder="Número de puerta" name="numero" id="numero" class="form-control" required><br>
+        <input type="text" placeholder="Esquina" name="esquina" id="esquina" class="form-control" required><br>
+
+        <hr>
+        <h5>Envio</h5>
+        <div>
+          <input type="radio" id="envio" name="envio" value="5" checked="" required>
+          <label for="envio"> Standard (12-15 dias)</label> <br>
+          <input type="radio" id="envio1" name="envio" value="7">
+          <label for="envio1"> Express (5-8 dias)</label> <br>
+          <input type="radio" id="envio2" name="envio" value="15">
+          <label for="envio2"> Premium (2-5 dias)</label> <br>
+        </div>
+        <hr>
+
+        <h3>Total a pagar</h3>
+        <div style="padding: 50px;">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Precio del producto</th>
+                <th scope="col">Precio del envio</th>
+                <th scope="col">Precio total</th>
+              </tr>
+            </thead>
+            <tbody id="totalEnvio">
+            </tbody>
+          </table>
+        </div>
+
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Método de
+          pago</button>
+        <hr>
       </div>
-      <div class="modal-body">
-        Su compra se ha hecho con exito
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+        style="background-image: url(img/2.jpg); background-size: cover;" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel" style="color: blue;">Método de pago</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="color: green;">
+
+              <div>
+                <h5>Tipo de pago:</h5>
+                <input type="radio" name="formaPago" value="1" required checked="">
+                <label for="credito">Crédito</label><br>
+
+                <input type="radio" name="formaPago" value="2" required>
+                <label for="transbanc">Transferencia Bancaria</label><br>
+
+                <br>
+              </div>
+              <div id="infoCard">
+                <div>
+                  <input type="text" placeholder="Nombre del Propietario" name="tarjetaNombre" id="tarjetaNombre"
+                    class="form-control" required><br>
+
+                  <input type="number" placeholder="Numero de Tarjeta" name="tarjetaNumero" id="tarjetaNumero"
+                    class="form-control" required>
+
+
+
+                </div>
+              </div>
+              <div id="infoBank">
+
+              </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-block btn-success" data-dismiss="modal" aria-label="Close">Listo</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-footer">
-        <a href="inicio.html"><button type="button" class="btn btn-primary">Confirmar</button></a>
-        
-      
-      </div>
-    </div>
-  </div>
-</div>
+      <hr>
+
+
+      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Confirmar Compra
+      </button>
+  </form>
 
   <div id="spinner-wrapper">
     <div class="lds-ring">
@@ -120,7 +183,26 @@
       <div></div>
       <div></div>
     </div>
+
   </div>
+  <script>
+    (function () {
+      'use strict';
+      window.addEventListener('load', function () {
+        var forms = document.getElementsByClassName('needs-validation');
+
+        var validation = Array.prototype.filter.call(forms, function (form) {
+          form.addEventListener('submit', function (event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
