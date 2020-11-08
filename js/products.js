@@ -16,64 +16,71 @@ function sortProducts(criterio, array) {
                 return 0;
             });
 
-    }   else if (criterio === ORDER_DESC_DOLAR) {
+    } else if (criterio === ORDER_DESC_DOLAR) {
         result = array.sort(
 
             function (a, b) {
-                if (a.cost > b.cost){
+                if (a.cost > b.cost) {
                     return -1;
                 }
-                if (a.cost < b.cost){
+                if (a.cost < b.cost) {
                     return 1;
                 }
                 return 0;
             });
 
     } else if (criterio === ORDER_DESC_SOLD) {
-        result = array.sort(function (a, b){
-            if (a.soldCount > b.soldCount) {return -1;} 
-            if (a.soldCount < b.soldCount) {return 1;}
+        result = array.sort(function (a, b) {
+            if (a.soldCount > b.soldCount) { return -1; }
+            if (a.soldCount < b.soldCount) { return 1; }
             return 0;
         })
     }
     return result;
 }
- 
-function showProductList(array){
+
+function showProductList(array) {
 
     let htmlContentToAppend = "";
-    for(let i = 0; i < array.length; i++){
+    for (let i = 0; i < array.length; i++) {
         let product = array[i];
-        
-        if(((costMin == undefined) || (costMin != undefined && parseInt(product.cost) >= costMin)) &&
-        ((costMax == undefined) || (costMax != undefined && parseInt(product.cost) <= costMax))){
-           
 
-        htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <div class="mb-1">
-                        <h4>`+ product.name +`</h4>
-                        <p>`+ product.description  +`</p>
+        if (((costMin == undefined) || (costMin != undefined && parseInt(product.cost) >= costMin)) &&
+            ((costMax == undefined) || (costMax != undefined && parseInt(product.cost) <= costMax))) {
+
+
+            htmlContentToAppend += `
+            <div class="col-lg-4 col-md-6 col-sm-6">
+            <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
+
+                    <img class="bd-placeholder-img card-img-top" src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+
+                <div class="card-body">
+
+                        <div class="card-text">
+                        <h4>`+ product.name + "  -  " + product.cost +  `USD</h4>
+                        <p>`+ product.description + `</p>
                         </div>
-                        <small class="text-muted">` + product.cost + ` USD</small>
-                        <small class="text-muted">` + product.soldCount + ` Vendidos</small>
-                        <a href="product-info.html"><button style="float: right;">Ver coche</button></a>
-                    </div>
+                        <div class"d-flex justify-content-between align-items-center">
+
+                        <small class="text-muted">` + product.soldCount +  `vendidos</small>
+                        </div>
+
 
                 </div>
-            </div>
+            </a>
         </div>
         `
-    }
-        
+        }
 
-        document.getElementById("prod-list-container").innerHTML = htmlContentToAppend; 
+
+
+
+
+
+
+
+        document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
     }
 }
 
@@ -106,30 +113,31 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         showProductList(productsArray);
     });
-    document.getElementById("filtrar").addEventListener("click", function(){
+    document.getElementById("filtrar").addEventListener("click", function () {
         costMin = document.getElementById("min").value;
         costMax = document.getElementById("max").value;
 
-        if((costMin != undefined) && (costMin != "") && (parseInt (costMin)) >=0) {
+        if ((costMin != undefined) && (costMin != "") && (parseInt(costMin)) >= 0) {
             costMin = parseInt(costMin);
         }
-        else{
+        else {
             costMin = undefined;
         }
-        if((costMax != undefined) && (costMax != "") && (parseInt (costMax)) >=0) {
-            costMax = parseInt(costMax);}
-            else{
-                costMax = undefined;
-            }
-            showProductList(productsArray);
-});
-document.getElementById("limpiar").addEventListener("click", function (){
-    document.getElementById("min").value = "";
-    document.getElementById("max").value = "";
-    costMin = undefined;
-    costMax = undefined;
-    showProductList(productsArray);
-});
+        if ((costMax != undefined) && (costMax != "") && (parseInt(costMax)) >= 0) {
+            costMax = parseInt(costMax);
+        }
+        else {
+            costMax = undefined;
+        }
+        showProductList(productsArray);
+    });
+    document.getElementById("limpiar").addEventListener("click", function () {
+        document.getElementById("min").value = "";
+        document.getElementById("max").value = "";
+        costMin = undefined;
+        costMax = undefined;
+        showProductList(productsArray);
+    });
 
 
 });
